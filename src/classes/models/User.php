@@ -2,25 +2,34 @@
 
 namespace App\models;
 
+
+use App\info\UserInfo;
+
 class User {
    private $name;
    private $email;
    private $password;
-   private $age;
+   private UserInfo $userInfo;
 
    /**
     * User constructor.
     * @param $name
     * @param $email
     * @param $password
-    * @param $age
     */
 
-   public function __construct($name = null, $email = null, $password = null, $age = null) {
+   public function __construct($name, $email, $password) {
       $this->name     = $name;
       $this->email    = $email;
       $this->password = $password;
-      $this->age      = $age;
+      $this->userInfo = new UserInfo();
+   }
+
+   /**
+    * @return array
+    */
+   public function getUserInfo() {
+      return $this->userInfo->getAllUserInfo();
    }
 
 
@@ -65,19 +74,4 @@ class User {
    public function setPassword($password): void {
       $this->password = $password;
    }
-
-   /**
-    * @return mixed
-    */
-   public function getAge() {
-      return $this->age;
-   }
-
-   /**
-    * @param mixed $age
-    */
-   public function setAge($age): void {
-      $this->age = $age;
-   }
-
 }
