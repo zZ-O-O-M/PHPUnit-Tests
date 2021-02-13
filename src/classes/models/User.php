@@ -24,6 +24,10 @@ class User {
       $this->userInfo = new UserInfo();
    }
 
+   public function setUserInfo(array $userData) {
+      $this->userInfo->setUserInfo($userData);
+   }
+
    /**
     * @param int $birthYear
     * @param int $currentYear

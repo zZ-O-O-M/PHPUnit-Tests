@@ -11,6 +11,19 @@ class House {
    private $price;
 
    /**
+    * House constructor.
+    * @param $address
+    * @param $size
+    * @param $price
+    */
+   public function __construct($address, $size, $price) {
+      $this->address = $address;
+      $this->size    = $size;
+      $this->price   = $price;
+   }
+
+
+   /**
     * @return mixed
     */
    public function getAddress() {

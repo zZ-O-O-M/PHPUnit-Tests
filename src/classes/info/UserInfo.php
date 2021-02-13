@@ -19,8 +19,8 @@ class UserInfo {
     */
    public function __construct($userAge = null) {
       $this->userCar   = new Car('2010', 15000, 'Nissan', 13);
-      $this->userHouse = new House();
-      $this->userJob   = new Job();
+      $this->userHouse = new House('12 24 Soz', 15000, 35000,);
+      $this->userJob   = new Job('RUFUS', "12-44 PI", '+ 231 331 23 11',);
    }
 
    /**
@@ -42,7 +42,7 @@ class UserInfo {
       if (isset($userData['userCar'])) $this->userCar = $userData['userCar'];
       if (isset($userData['userHouse'])) $this->userHouse = $userData['userHouse'];
       if (isset($userData['userJob'])) $this->userJob = $userData['userJob'];
-      if (isset($userData['userAge'])) $this->userCar = $userData['userAge'];
+      if (isset($userData['userAge'])) $this->userAge = $userData['userAge'];
    }
 
    /**

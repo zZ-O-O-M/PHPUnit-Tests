@@ -1,5 +1,6 @@
 <?php
 
+use App\models\Car;
 use App\models\User;
 use PHPUnit\Framework\TestCase;
 
@@ -55,9 +56,20 @@ class UserTest extends TestCase {
       $this->assertArrayHasKey('userCar', $userInfo, "Field userCar doesn't exist in array userInfo");
       $this->assertArrayHasKey('userHouse', $userInfo, "Field userHouse doesn't exist in array userInfo");
       $this->assertArrayHasKey('userJob', $userInfo, "Field userJob doesn't exist in array userInfo");
+
+
+      $newUserInfo = [
+         'userCar' => new Car('2000', 20000, 'Nissan', 5),
+         'userAge' => 45
+      ];
+      $this->user->setUserInfo($newUserInfo);
+
+      $gettingData = $this->user->getUserInfo();
+      $this->assertEquals('2000', $gettingData['userCar']->getYear(), 'Not expected year!');
+      $this->assertEquals(20000, $gettingData['userCar']->getCurrentPrice(), 'Not expected price!');
    }
 
-   public function testUserCalculationAge(){
+   public function testUserCalculationAge() {
       $this->assertEquals(21, $this->user->calculateUserAge(2000, 2021), "Incorrect age!");
    }
 }

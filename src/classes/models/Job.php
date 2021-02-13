@@ -11,6 +11,19 @@ class Job {
    private $phoneNumber;
 
    /**
+    * JobTest constructor.
+    * @param $name
+    * @param $address
+    * @param $phoneNumber
+    */
+   public function __construct($name, $address, $phoneNumber) {
+      $this->name        = $name;
+      $this->address     = $address;
+      $this->phoneNumber = $phoneNumber;
+   }
+
+
+   /**
     * @return mixed
     */
    public function getName() {
