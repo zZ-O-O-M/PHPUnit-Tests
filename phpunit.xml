@@ -3,4 +3,9 @@
     <testsuite name="User">
         <directory suffix="Test.php">./tests</directory>
     </testsuite>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src/classes</directory>
+        </whitelist>
+    </filter>
 </phpunit>
