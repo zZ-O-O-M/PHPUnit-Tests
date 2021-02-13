@@ -17,13 +17,22 @@ class User {
     * @param $email
     * @param $password
     */
-
    public function __construct($name, $email, $password) {
       $this->name     = $name;
       $this->email    = $email;
       $this->password = $password;
       $this->userInfo = new UserInfo();
    }
+
+   /**
+    * @param int $birthYear
+    * @param int $currentYear
+    * @return int
+    */
+   public function calculateUserAge(int $birthYear, int $currentYear): int {
+      return $currentYear - $birthYear;
+   }
+
 
    /**
     * @return array

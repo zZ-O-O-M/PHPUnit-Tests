@@ -18,22 +18,31 @@ class UserInfo {
     * @param null $userAge
     */
    public function __construct($userAge = null) {
-      $this->userCar   = new Car();
+      $this->userCar   = new Car('2010', 15000, 'Nissan', 13);
       $this->userHouse = new House();
       $this->userJob   = new Job();
-      $this->userAge   = $userAge;
    }
 
    /**
     * @return array
     */
-   public function getAllUserInfo() {
+   public function getAllUserInfo(): array {
       return [
          'userCar'   => $this->userCar,
          'userHouse' => $this->userHouse,
          'userJob'   => $this->userJob,
          'userAge'   => $this->userAge
       ];
+   }
+
+   /**
+    * @param array $userData
+    */
+   public function setUserInfo(array $userData) {
+      if (isset($userData['userCar'])) $this->userCar = $userData['userCar'];
+      if (isset($userData['userHouse'])) $this->userHouse = $userData['userHouse'];
+      if (isset($userData['userJob'])) $this->userJob = $userData['userJob'];
+      if (isset($userData['userAge'])) $this->userCar = $userData['userAge'];
    }
 
    /**

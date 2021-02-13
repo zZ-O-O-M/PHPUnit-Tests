@@ -7,15 +7,30 @@ namespace App\models;
 class Car {
    private $year;
    private $currentPrice;
-   private $name;
+   private $brand;
    private $consumption;
 
-      /**
-       * @return mixed
-       */
+   /**
+    * Car constructor.
+    * @param $year
+    * @param $currentPrice
+    * @param $brand
+    * @param $consumption
+    */
+   public function __construct($year, $currentPrice, $brand, $consumption) {
+      $this->year         = $year;
+      $this->currentPrice = $currentPrice;
+      $this->brand        = $brand;
+      $this->consumption  = $consumption;
+   }
+
+
+   /**
+    * @return mixed
+    */
    public function getCurrentPrice() {
-   return $this->currentPrice;
-}
+      return $this->currentPrice;
+   }
 
    /**
     * @param mixed $currentPrice
@@ -41,15 +56,15 @@ class Car {
    /**
     * @return mixed
     */
-   public function getName() {
-      return $this->name;
+   public function getBrand() {
+      return $this->brand;
    }
 
    /**
-    * @param mixed $name
+    * @param mixed $brand
     */
-   public function setName($name): void {
-      $this->name = $name;
+   public function setBrand($brand): void {
+      $this->brand = $brand;
    }
 
    /**
